@@ -504,79 +504,81 @@ yydefault:
 			switch yyDollar[1].n {
 			case queryMustNot:
 				yyVAL.q = NewNotCondition(yyDollar[2].q, true)
+			case queryMust:
+				yyVAL.q = NewMustCondition(yyDollar[2].q)
 			default:
 				yyVAL.q = yyDollar[2].q
 			}
 		}
 	case 5:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line querystring.y:49
+//line querystring.y:51
 		{
 			yyVAL.q = yyDollar[1].q
 		}
 	case 6:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line querystring.y:54
+//line querystring.y:56
 		{
 			yyVAL.q = yyDollar[1].q
 		}
 	case 7:
 		yyDollar = yyS[yypt-3 : yypt+1]
-//line querystring.y:58
+//line querystring.y:60
 		{
 			yyVAL.q = NewAndCondition(yyDollar[1].q, yyDollar[3].q)
 		}
 	case 8:
 		yyDollar = yyS[yypt-3 : yypt+1]
-//line querystring.y:62
+//line querystring.y:64
 		{
 			yyVAL.q = NewOrCondition(yyDollar[1].q, yyDollar[3].q)
 		}
 	case 9:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line querystring.y:67
+//line querystring.y:69
 		{
 			yyVAL.q = yyDollar[1].q
 		}
 	case 10:
 		yyDollar = yyS[yypt-3 : yypt+1]
-//line querystring.y:71
+//line querystring.y:73
 		{
 			yyVAL.q = yyDollar[2].q
 		}
 	case 11:
 		yyDollar = yyS[yypt-2 : yypt+1]
-//line querystring.y:75
+//line querystring.y:77
 		{
 			yyVAL.q = NewNotCondition(yyDollar[2].q, false)
 		}
 	case 12:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line querystring.y:80
+//line querystring.y:82
 		{
 			yyVAL.n = queryMust
 		}
 	case 13:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line querystring.y:84
+//line querystring.y:86
 		{
 			yyVAL.n = queryMustNot
 		}
 	case 14:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line querystring.y:89
+//line querystring.y:91
 		{
 			yyVAL.q = newStringCondition(yyDollar[1].s)
 		}
 	case 15:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line querystring.y:93
+//line querystring.y:95
 		{
 			yyVAL.q = NewMatchCondition(yyDollar[1].s)
 		}
 	case 16:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line querystring.y:97
+//line querystring.y:99
 		{
 			phrase := yyDollar[1].s
 			q := NewMatchCondition(phrase)
@@ -584,7 +586,7 @@ yydefault:
 		}
 	case 17:
 		yyDollar = yyS[yypt-3 : yypt+1]
-//line querystring.y:103
+//line querystring.y:105
 		{
 			q := newStringCondition(yyDollar[3].s)
 			q.SetField(yyDollar[1].s)
@@ -592,7 +594,7 @@ yydefault:
 		}
 	case 18:
 		yyDollar = yyS[yypt-3 : yypt+1]
-//line querystring.y:109
+//line querystring.y:111
 		{
 			val := yyDollar[3].s
 			q := NewNumberRangeCondition(&val, &val, true, true)
@@ -601,7 +603,7 @@ yydefault:
 		}
 	case 19:
 		yyDollar = yyS[yypt-3 : yypt+1]
-//line querystring.y:116
+//line querystring.y:118
 		{
 			q := NewMatchCondition(yyDollar[3].s)
 			q.SetField(yyDollar[1].s)
@@ -609,7 +611,7 @@ yydefault:
 		}
 	case 20:
 		yyDollar = yyS[yypt-4 : yypt+1]
-//line querystring.y:122
+//line querystring.y:124
 		{
 			val := yyDollar[4].s
 			q := NewNumberRangeCondition(&val, nil, false, false)
@@ -618,7 +620,7 @@ yydefault:
 		}
 	case 21:
 		yyDollar = yyS[yypt-5 : yypt+1]
-//line querystring.y:129
+//line querystring.y:131
 		{
 			val := yyDollar[5].s
 			q := NewNumberRangeCondition(&val, nil, true, false)
@@ -627,7 +629,7 @@ yydefault:
 		}
 	case 22:
 		yyDollar = yyS[yypt-4 : yypt+1]
-//line querystring.y:136
+//line querystring.y:138
 		{
 			val := yyDollar[4].s
 			q := NewNumberRangeCondition(nil, &val, false, false)
@@ -636,7 +638,7 @@ yydefault:
 		}
 	case 23:
 		yyDollar = yyS[yypt-5 : yypt+1]
-//line querystring.y:143
+//line querystring.y:145
 		{
 			val := yyDollar[5].s
 			q := NewNumberRangeCondition(nil, &val, false, true)
@@ -645,7 +647,7 @@ yydefault:
 		}
 	case 24:
 		yyDollar = yyS[yypt-4 : yypt+1]
-//line querystring.y:150
+//line querystring.y:152
 		{
 			phrase := yyDollar[4].s
 			q := NewTimeRangeCondition(&phrase, nil, false, false)
@@ -654,7 +656,7 @@ yydefault:
 		}
 	case 25:
 		yyDollar = yyS[yypt-5 : yypt+1]
-//line querystring.y:157
+//line querystring.y:159
 		{
 			phrase := yyDollar[5].s
 			q := NewTimeRangeCondition(&phrase, nil, true, false)
@@ -663,7 +665,7 @@ yydefault:
 		}
 	case 26:
 		yyDollar = yyS[yypt-4 : yypt+1]
-//line querystring.y:164
+//line querystring.y:166
 		{
 			phrase := yyDollar[4].s
 			q := NewTimeRangeCondition(nil, &phrase, false, false)
@@ -672,7 +674,7 @@ yydefault:
 		}
 	case 27:
 		yyDollar = yyS[yypt-5 : yypt+1]
-//line querystring.y:171
+//line querystring.y:173
 		{
 			phrase := yyDollar[5].s
 			q := NewTimeRangeCondition(nil, &phrase, false, true)
@@ -681,7 +683,7 @@ yydefault:
 		}
 	case 28:
 		yyDollar = yyS[yypt-7 : yypt+1]
-//line querystring.y:178
+//line querystring.y:180
 		{
 			min := yyDollar[4].s
 			max := yyDollar[6].s
@@ -691,7 +693,7 @@ yydefault:
 		}
 	case 29:
 		yyDollar = yyS[yypt-7 : yypt+1]
-//line querystring.y:186
+//line querystring.y:188
 		{
 			min := yyDollar[4].s
 			max := yyDollar[6].s
@@ -701,13 +703,13 @@ yydefault:
 		}
 	case 30:
 		yyDollar = yyS[yypt-1 : yypt+1]
-//line querystring.y:195
+//line querystring.y:197
 		{
 			yyVAL.s = yyDollar[1].s
 		}
 	case 31:
 		yyDollar = yyS[yypt-2 : yypt+1]
-//line querystring.y:199
+//line querystring.y:201
 		{
 			yyVAL.s = "-" + yyDollar[2].s
 		}

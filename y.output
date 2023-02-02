@@ -65,19 +65,19 @@ state 4
 state 5
 	searchPart:  searchLogicPart.    (5)
 
-	.  reduce 5 (src line 48)
+	.  reduce 5 (src line 50)
 
 
 state 6
 	searchPrefix:  tPLUS.    (12)
 
-	.  reduce 12 (src line 79)
+	.  reduce 12 (src line 81)
 
 
 state 7
 	searchPrefix:  tMINUS.    (13)
 
-	.  reduce 13 (src line 83)
+	.  reduce 13 (src line 85)
 
 
 state 8
@@ -87,13 +87,13 @@ state 8
 
 	tAND  shift 17
 	tOR  shift 18
-	.  reduce 6 (src line 53)
+	.  reduce 6 (src line 55)
 
 
 state 9
 	searchLogicSimplePart:  searchBase.    (9)
 
-	.  reduce 9 (src line 66)
+	.  reduce 9 (src line 68)
 
 
 state 10
@@ -140,19 +140,19 @@ state 12
 	searchBase:  tSTRING.tCOLON tLEFTRANGE tPHRASE tTO tPHRASE tRIGHTRANGE 
 
 	tCOLON  shift 21
-	.  reduce 14 (src line 88)
+	.  reduce 14 (src line 90)
 
 
 state 13
 	searchBase:  tNUMBER.    (15)
 
-	.  reduce 15 (src line 92)
+	.  reduce 15 (src line 94)
 
 
 state 14
 	searchBase:  tPHRASE.    (16)
 
-	.  reduce 16 (src line 96)
+	.  reduce 16 (src line 98)
 
 
 state 15
@@ -205,7 +205,7 @@ state 19
 state 20
 	searchLogicSimplePart:  tNOT searchLogicSimplePart.    (11)
 
-	.  reduce 11 (src line 74)
+	.  reduce 11 (src line 76)
 
 
 state 21
@@ -237,37 +237,37 @@ state 21
 state 22
 	searchLogicPart:  searchLogicSimplePart tAND searchLogicPart.    (7)
 
-	.  reduce 7 (src line 57)
+	.  reduce 7 (src line 59)
 
 
 state 23
 	searchLogicPart:  searchLogicSimplePart tOR searchLogicPart.    (8)
 
-	.  reduce 8 (src line 61)
+	.  reduce 8 (src line 63)
 
 
 state 24
 	searchLogicSimplePart:  tLEFTBRACKET searchLogicPart tRIGHTBRACKET.    (10)
 
-	.  reduce 10 (src line 70)
+	.  reduce 10 (src line 72)
 
 
 state 25
 	searchBase:  tSTRING tCOLON tSTRING.    (17)
 
-	.  reduce 17 (src line 102)
+	.  reduce 17 (src line 104)
 
 
 state 26
 	searchBase:  tSTRING tCOLON posOrNegNumber.    (18)
 
-	.  reduce 18 (src line 108)
+	.  reduce 18 (src line 110)
 
 
 state 27
 	searchBase:  tSTRING tCOLON tPHRASE.    (19)
 
-	.  reduce 19 (src line 115)
+	.  reduce 19 (src line 117)
 
 
 state 28
@@ -312,7 +312,7 @@ state 30
 state 31
 	posOrNegNumber:  tNUMBER.    (30)
 
-	.  reduce 30 (src line 194)
+	.  reduce 30 (src line 196)
 
 
 state 32
@@ -325,7 +325,7 @@ state 32
 state 33
 	searchBase:  tSTRING tCOLON tGREATER posOrNegNumber.    (20)
 
-	.  reduce 20 (src line 121)
+	.  reduce 20 (src line 123)
 
 
 state 34
@@ -342,13 +342,13 @@ state 34
 state 35
 	searchBase:  tSTRING tCOLON tGREATER tPHRASE.    (24)
 
-	.  reduce 24 (src line 149)
+	.  reduce 24 (src line 151)
 
 
 state 36
 	searchBase:  tSTRING tCOLON tLESS posOrNegNumber.    (22)
 
-	.  reduce 22 (src line 135)
+	.  reduce 22 (src line 137)
 
 
 state 37
@@ -365,7 +365,7 @@ state 37
 state 38
 	searchBase:  tSTRING tCOLON tLESS tPHRASE.    (26)
 
-	.  reduce 26 (src line 163)
+	.  reduce 26 (src line 165)
 
 
 state 39
@@ -385,31 +385,31 @@ state 40
 state 41
 	posOrNegNumber:  tMINUS tNUMBER.    (31)
 
-	.  reduce 31 (src line 198)
+	.  reduce 31 (src line 200)
 
 
 state 42
 	searchBase:  tSTRING tCOLON tGREATER tEQUAL posOrNegNumber.    (21)
 
-	.  reduce 21 (src line 128)
+	.  reduce 21 (src line 130)
 
 
 state 43
 	searchBase:  tSTRING tCOLON tGREATER tEQUAL tPHRASE.    (25)
 
-	.  reduce 25 (src line 156)
+	.  reduce 25 (src line 158)
 
 
 state 44
 	searchBase:  tSTRING tCOLON tLESS tEQUAL posOrNegNumber.    (23)
 
-	.  reduce 23 (src line 142)
+	.  reduce 23 (src line 144)
 
 
 state 45
 	searchBase:  tSTRING tCOLON tLESS tEQUAL tPHRASE.    (27)
 
-	.  reduce 27 (src line 170)
+	.  reduce 27 (src line 172)
 
 
 state 46
@@ -445,13 +445,13 @@ state 49
 state 50
 	searchBase:  tSTRING tCOLON tLEFTRANGE posOrNegNumber tTO posOrNegNumber tRIGHTRANGE.    (28)
 
-	.  reduce 28 (src line 177)
+	.  reduce 28 (src line 179)
 
 
 state 51
 	searchBase:  tSTRING tCOLON tLEFTRANGE tPHRASE tTO tPHRASE tRIGHTRANGE.    (29)
 
-	.  reduce 29 (src line 185)
+	.  reduce 29 (src line 187)
 
 
 20 terminals, 9 nonterminals

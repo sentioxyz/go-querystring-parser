@@ -41,6 +41,8 @@ searchPrefix searchBase {
 	switch($1) {
 	case queryMustNot:
 		$$ = NewNotCondition($2, true)
+	case queryMust:
+		$$ = NewMustCondition($2)
 	default:
 		$$ = $2
 	}

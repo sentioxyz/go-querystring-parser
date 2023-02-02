@@ -42,6 +42,16 @@ func NewNotCondition(q Condition, MinusSign bool) *NotCondition {
 	return &NotCondition{Condition: q, MinusSign: MinusSign}
 }
 
+// MustCondition .
+type MustCondition struct {
+	Condition Condition
+}
+
+// NewMustCondition .
+func NewMustCondition(q Condition) *MustCondition {
+	return &MustCondition{Condition: q}
+}
+
 // FieldableCondition .
 type FieldableCondition interface {
 	SetField(field string)
