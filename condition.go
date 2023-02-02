@@ -34,11 +34,12 @@ func NewOrCondition(left, right Condition) *OrCondition {
 // NotCondition .
 type NotCondition struct {
 	Condition Condition
+	MinusSign bool
 }
 
 // NewNotCondition .
-func NewNotCondition(q Condition) *NotCondition {
-	return &NotCondition{Condition: q}
+func NewNotCondition(q Condition, MinusSign bool) *NotCondition {
+	return &NotCondition{Condition: q, MinusSign: MinusSign}
 }
 
 // FieldableCondition .

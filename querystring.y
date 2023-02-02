@@ -40,7 +40,7 @@ searchPart:
 searchPrefix searchBase {
 	switch($1) {
 	case queryMustNot:
-		$$ = NewNotCondition($2)
+		$$ = NewNotCondition($2, true)
 	default:
 		$$ = $2
 	}
@@ -73,7 +73,7 @@ tLEFTBRACKET searchLogicPart tRIGHTBRACKET {
 }
 |
 tNOT searchLogicSimplePart {
-	$$ = NewNotCondition($2)
+	$$ = NewNotCondition($2, false)
 };
 
 searchPrefix:
