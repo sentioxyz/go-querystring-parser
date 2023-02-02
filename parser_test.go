@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/go-test/deep"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestParser(t *testing.T) {
@@ -31,6 +32,17 @@ func TestParser(t *testing.T) {
 		t.Errorf("returned condition unexpected: diff= %s", diff)
 		return
 	}
+}
+
+func TestParser2(t *testing.T) {
+	cond, err := Parse("-foo:bar")
+	assert.NoError(t, err)
+	cond, err = Parse("foo:bar AND -foo:bar")
+	assert.NoError(t, err)
+	assert.IsType(t, cond, &AndCondition{})
+	cond, err = Parse("foo:bar AND -foo:bar hello")
+	assert.NoError(t, err)
+	assert.IsType(t, cond, &AndCondition{})
 }
 
 func pointer(s string) *string {
